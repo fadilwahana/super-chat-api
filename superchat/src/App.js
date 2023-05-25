@@ -19,9 +19,28 @@ firebase.initializeApp({
 })
 
 function App() {
+
+  const [user] = useAuthState();
+
   return (
     <div className="App">
       <header className="App-header">
 
-        <section>
-          {user ? <ChatRoom /> : <Sig
+      </header>
+
+      <section>
+          {user ? <ChatRoom /> : <SignIn />}
+        </section>
+
+    </div>
+  );
+}
+
+function SignIn () {
+
+  return(
+    <button onClick={signInWithGoogle}>Sign in with Google</button>
+  )
+}
+
+export default App;
